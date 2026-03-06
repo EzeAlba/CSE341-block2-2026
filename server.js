@@ -3,6 +3,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongodb = require('./data/database.js');
 
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
 app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
