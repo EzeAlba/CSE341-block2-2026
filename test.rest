@@ -2,6 +2,9 @@
 @baseUrl = http://localhost:3000
 @contentType = application/json
 
+##Production variables
+@baseUrl2 = https://cse341-project1-9dnd.onrender.com
+
 ### Test root endpoint
 GET {{baseUrl}}/
 
@@ -37,3 +40,43 @@ Content-Type: {{contentType}}
 
 ### Delete a contact
 DELETE {{baseUrl}}/contacts/69ab451baf86ae5c10e5cb8b
+
+
+
+
+##Production tests
+### Test root endpoint
+GET {{baseUrl2}}/
+
+### Get all contacts
+GET {{baseUrl2}}/contacts
+
+### Get contact by ID
+GET {{baseUrl2}}/contacts/69ab6767682ca0ed2a82b676
+
+### Create a new contact    
+POST {{baseUrl2}}/contacts
+Content-Type: {{contentType}}
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "Orange",
+  "birthday": "08/15/1990"
+}
+
+### Update a contact
+PUT {{baseUrl2}}/contacts/69ab6767682ca0ed2a82b676
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane.doe@example.com",
+    "favoriteColor": "Blue",
+    "birthday": "09/20/1992"
+}
+
+### Delete a contact
+DELETE {{baseUrl2}}/contacts/69ab459daf86ae5c10e5cb8c
